@@ -9,8 +9,8 @@ $(document).ready(function () {
         e.preventDefault();
         var $ = jQuery;
 
-        var postData 		= $(this).serializeArray(),
-            formURL 		= $(this).attr("action"),
+        var postData 		= $(this).serializeArray(), 
+            formURL 		= "", //TODO: get nodemail up
             $cfResponse 	= $('#action_message'),
             $cfsubmit 		= $("#submit"),
             cfsubmitText 	= $cfsubmit.text();
@@ -31,7 +31,7 @@ $(document).ready(function () {
                 },
                 error: function(data)
                 {
-                    alert("Error occurd! Please try again");
+                    alert("Error occurred! Please try again");
                     $cfsubmit.text(cfsubmitText);
                 }
             });
@@ -80,7 +80,7 @@ $(document).ready(function () {
                 },
                 error: function(data)
                 {
-                    alert("Error occurd! Please try again");
+                    alert("Error occurred! Please try again");
                     $afsubmit.text(afsubmitText);
                 }
             });

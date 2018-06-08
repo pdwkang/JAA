@@ -39,6 +39,9 @@ a{
 img.main-content-img {
     float: left;
     margin: 8px 30px 10px 0;
+    width: 200px;
+    height: auto;
+    filter:brightness(95%);
 }
 /*Sidebar*/
 /*=======*/
@@ -310,8 +313,7 @@ p.comment {
     margin-bottom: 30px;
 }
 .qualification img, .experience img{
-    width: 80px;
-    height: 50px;
+    width: auto;
 }
 .qualification p, .experience p{
     margin: 0;

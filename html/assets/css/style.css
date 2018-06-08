@@ -256,14 +256,14 @@ div#faq {
     background: rgb(33, 45, 42);
 }
 h2.header-text:before {
-    content: "[";
+    /*content: "[";*/
     position: relative;
     right: 10px;
     font-size: 90px;
     top: 5px;
 }
 h2.header-text:after {
-    content: "]";
+    /*content: "]";*/
     position: relative;
     left: 10px;
     font-size: 90px;
@@ -744,6 +744,7 @@ small{
     background-color: #2d2d2d;
     padding: 15px 0;
     margin-bottom: 0;
+    font-weight: 700;
 }
 .copyrights a{
     color: #6b6b6b;
