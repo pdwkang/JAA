@@ -1500,7 +1500,7 @@ input {
     height: 24px;
     width: auto;
     position: fixed;
-    top: 10px;
+    top: 12px;
     right: 10px;
     filter: brightness(130%);
 }
