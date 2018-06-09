@@ -1495,3 +1495,17 @@ input {
         display: none;
     }
 }
+
+#language {
+    height: 24px;
+    width: auto;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    filter: brightness(130%);
+}
+
+#language:hover {
+    opacity:.9;
+    cursor: pointer;
+}
