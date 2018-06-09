@@ -20,25 +20,13 @@
 		var src = 'assets/images/' + lang + '.png';
 		$('#language')[0].src = src;
 		
-		$("#language").tooltip({content:'aaa'})
 		$("#language").click( function (e) {
 			lang = lang === 'English' ? 'Korean' : 'English'; // Toggle language
-			
-			if (lang === 'English') {
-				$(this).tooltip()
-					.attr('data-original-title', "View website in Korean")
-					.tooltip('fixTitle')
-					.tooltip('show');
-			} else {
-				$(this).tooltip()
-					.attr('data-original-title', "영어로 번역")
-					.tooltip('fixTitle')
-					.tooltip('show');
-			}
 			localStorage.setItem('language', lang);
 			
 			src = 'assets/images/' + lang + '.png';
 			$('#language')[0].src = src;
+			changeTooltip(this);
 			translatePage();
 		});
 
@@ -48,6 +36,20 @@
 			htmlObject['html' + i] = "";
 		}
 
+
+		function changeTooltip(tooltip) {
+			if (lang === 'English') {
+				$(tooltip).tooltip()
+					.attr('data-original-title', "View website in Korean")
+					.tooltip('fixTitle')
+					.tooltip('show');
+			} else {
+				$(tooltip).tooltip()
+					.attr('data-original-title', "영어로 번역")
+					.tooltip('fixTitle')
+					.tooltip('show');
+			}
+		}
 
 		function translatePage(initial) {
 
@@ -75,12 +77,14 @@
 			} else if (!initial && lang === 'English') {
 				$('.header-text').html(htmlObject.html1);
 				$('.nav.navbar-nav.navbar-right').html(htmlObject.html2);
-			}
+			
+			} 
+			
+			if (initial && lang === 'Korean') changeTooltip($("#language"));
 
 		}
 		
 		translatePage(true);
-
 
 
 	});
