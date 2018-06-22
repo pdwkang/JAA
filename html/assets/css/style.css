@@ -392,6 +392,8 @@ h2.header-text {
 }
 .navbar-brand > img{
     margin-top: -30px;
+    width:400px;
+    filter: brightness(0) invert(1);
 }
 .navbar-default{
     border-color: transparent;
@@ -420,8 +422,9 @@ h2.header-text {
     background-color: #30AD97;
 }
 .thin .navbar-brand > img{
-    width: 50%;
-    margin-top: -10px;
+    height: 50px;
+    width:auto;
+    margin-top: -15px;
 }
 
 .thin.navbar-default .navbar-nav > li > a:hover {
@@ -444,8 +447,9 @@ h2.header-text {
         text-align: center;
     }
     .navbar-brand > img{
-        width: 50%;
-        margin-top: -10px;
+        height: 50px;
+        width :auto;
+        margin-top: -15px;
     }
 }
 /* ----------------------------------------------------
@@ -650,7 +654,10 @@ section#fun_facts {
 }
 @media (min-width: 768px){
     .footer-logo{
-        padding: 50px 0;
+
+        width:100%;
+        height:auto;
+        filter: brightness(0) invert(1);
     }
 }
 .footer .social i {
