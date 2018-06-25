@@ -9,30 +9,50 @@ $(document).ready(function () {
         e.preventDefault();
         var $ = jQuery;
 
-        var postData 		= $(this).serializeArray(), 
-            formURL 		= "", //TODO: get nodemail up
-            $cfResponse 	= $('#action_message'),
-            $cfsubmit 		= $("#submit"),
-            cfsubmitText 	= $cfsubmit.text();
+        var postArray 		= $(this).serializeArray(), 
+            formURL 		= "http://TODO: put node on the box/email/send";
 
-        $cfsubmit.text("Sending...");
-
-
+        var postData = {};
+        try {
+            postArray.forEach( function (a) { 
+                postData[a.name] = a.value || "[empty]";
+            })
+        } catch (e) {
+            
+            // message for developer
+            let actualError = "FRONT END: " + JSON.stringify(e);
+            let line = '<br/>-------------------------------------------<br/>';
+            let attemptedPostObject = "Attempted Post Object: " + JSON.stringify(postData); //TODO: ask if this is okay for developer to see
+            let msgForDev = "Message For Developer: " + line + "<br/>  " + actualError + "<br/><br/>" + attemptedPostObject;
+            
+            // email for admin
+            postData = {
+                "name":"jeongandassociates.com",
+                "email": "TODO: edit on box@email.com",
+                "subject": "Customer Email Failed",
+                "comments": `Someone tried to email you on your website and something went wrong, <br/>
+                             If you are seeing this message, you will not be receiving emails until this is resolved ㅠㅠ <br/>
+                             Please forward this email to 'TODO: edit on box @email.com' or call me at (###) ### - ####. <br/>
+                             <br/>` + line + msgForDev
+            }
+        }
+        
         $.ajax(
             {
-                url : formURL,
+                url : postData,
                 type: "POST",
                 data : postData,
                 success:function(data)
                 {
-                    $cfResponse.html(data);
-                    $cfsubmit.text(cfsubmitText);
                     $("#contactform")[0].reset();
                 },
                 error: function(data)
                 {
-                    alert("Error occurred! Please try again");
-                    $cfsubmit.text(cfsubmitText);
+                    // message for user      
+                    // TODO: change verbiage
+                    alert("Error occurred! Please try again!");
+                    
+                    // TODO: Write log file when you put node on the box
                 }
             });
 
@@ -43,56 +63,3 @@ $(document).ready(function () {
 
 
 });
-
-
-
-/*------------------------------------------
- Appointment form
- ------------------------------------------*/
-
-
-$(document).ready(function () {
-
-    $("#appointment_form").submit(function(e){
-
-        e.preventDefault();
-        var $ = jQuery;
-
-        var postData        = $(this).serializeArray(),
-            formURL         = $(this).attr("action"),
-            $cfResponse     = $('#AppointmentFormResponse'),
-            $afsubmit       = $("#afsubmit"),
-            afsubmitText    = $afsubmit.text();
-
-        $afsubmit.text("Sending...");
-
-
-        $.ajax(
-            {
-                url : formURL,
-                type: "POST",
-                data : postData,
-                success:function(data)
-                {
-                    $cfResponse.html(data);
-                    $afsubmit.text(afsubmitText);
-                    $("#appointment_form")[0].reset();
-                },
-                error: function(data)
-                {
-                    alert("Error occurred! Please try again");
-                    $afsubmit.text(afsubmitText);
-                }
-            });
-        return true;
-
-    });
-
-
-});
-
-
-/*-------------------------------------------------
-Dropdown Menu On Hover
---------------------------------------------------*/
-
