@@ -39,7 +39,7 @@ a{
 img.main-content-img {
     float: left;
     margin: 8px 30px 10px 0;
-    width: 200px;
+    width: 150px;
     height: auto;
     filter:brightness(95%);
 }

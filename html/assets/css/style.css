@@ -1516,3 +1516,81 @@ input {
     opacity:.9;
     cursor: pointer;
 }
+
+.beautiful-list {
+    display:inline-block;
+    background: rgb(230,230,230); 
+    /* border-top: 2px solid black;  */
+    padding-left: 15px; 
+    color: black;
+    width: 200px;
+    height:30px;
+    margin:0;
+    /* line-height:23px; */
+
+}
+.list-number {
+    margin:0;
+    display:inline-block;
+    /* padding:@px; */
+    /* line-height:23px; */
+    width:30px;
+    height:30px;
+    text-align: center;
+    background: rgb(120,120,120); 
+    color:white;    
+}
+
+
+
+
+a {
+    color: blue;
+  }
+  ol {
+    list-style: none;
+    counter-reset: item;
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+  ol li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  ol.alt li {
+    padding-left: 0; /* clear */
+    text-indent: 25px;
+  }
+  ol li:before {
+    content: '' counter(item, decimal-leading-zero) '';
+    counter-increment: item;
+    background-color:  #30AD97;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+  
+    font-size: 10px;
+    color: #fff;
+    border-radius: 50%;
+    text-indent: 0; /* clear */
+  }
+  
+  ol li:hover {
+    background-color: #ffc;
+  }
+
+  .row-card{
+    margin-top:-15px; 
+    background:rgb(250,250,250); 
+    padding: 20px 40px; 
+    box-shadow: 2px 2px 2px rgb(180,180,180); 
+    /* border-radius: 10px; */
+  }
+  .pdf-download:hover{
+    opacity:.6;
+  }
